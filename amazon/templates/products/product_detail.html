@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Product Detail{% endblock %}
+
+{% block header %}
+    <h1>Product Details</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">{{ product.title }}</h1>
+        <p class="lead">{{ product.description }}</p>
+        <hr class="my-4">
+        <ul>
+            {% for category in product.categories.all %}
+                <li class="lead text-primary">{{ category.title }}</li>
+            {% endfor %}
+        </ul>
+        
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
+{% endblock %}
