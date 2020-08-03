@@ -18,6 +18,8 @@ class Product(models.Model):
     class Meta:
         ordering = ('-id',)
 
+# не забудьте в гит коммитнуть
+
 
 class ProductItem(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='items')
@@ -30,7 +32,7 @@ class ProductItem(models.Model):
     instock = InStockManager()
 
     def __str__(self):
-        return f'{self.product.title}"s item of color {self.color}'
+        return f'SIZE: {self.size}. COLOR: {self.color}. PRICE: {self.price} USD'
     
 
 class ProductItemImage(models.Model):

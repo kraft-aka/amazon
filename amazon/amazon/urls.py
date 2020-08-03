@@ -10,7 +10,9 @@ from applications.products.views import MainPageView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainPageView.as_view(), name='main-page'),
+    path('categories/', include('applications.categories.urls')),
     path('products/', include('applications.products.urls')),
+    
 ]
 
 if settings.DEBUG:

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Categories Details{% endblock %}
+
+{% block header %}
+    <h1>Category Details</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">{{ category.title }}</h1>
+        <p class="lead">{{ category.parent }}</p>
+        <a href="{% url 'category-update' category.id %}" class="btn btn-outline-success mt-3">Update</a>
+        <a href="{% url 'category-delete' category.id %}" class="btn btn-outline-danger mt-3">Delete</a>
+        <hr class="my-4">
+        <ul>
+            {% for product in category.products.all %}
+                <li class="lead text-primary">{{ product.title }}</li>
+                <ul>
+                    {% for item in product.items.all %}
+                        <li class="lead text-warning">{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
