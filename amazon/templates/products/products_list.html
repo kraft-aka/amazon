@@ -3,11 +3,20 @@
 
 {% block title %}Products{% endblock %}
 
+
 {% block header %}
     <h1>Products</h1>
+    <div>
+        <form action="{% url 'products-list' %}" class="form-inline my-2 my-lg-0" method="GET">
+            <input class="form-control mr-sm-2" name="q" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 mb-3" type="submit">Search Product</button>
+        </form>
+    </div>
 {% endblock %}
 
 {% block content %}
+<a href="{% url 'product-create' %}" class="btn btn-primary mb-3">Create</a>
+<a href="{% url 'item-create' %}" class="btn btn-primary mb-3">Create Item</a>
     <div class="row row-cols-3">
         {% for product in products %}
             <div class="col mb-4">

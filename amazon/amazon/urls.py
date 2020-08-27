@@ -12,6 +12,7 @@ urlpatterns = [
     path('', MainPageView.as_view(), name='main-page'),
     path('categories/', include('applications.categories.urls')),
     path('products/', include('applications.products.urls')),
+    path('authors/', include('applications.authors.urls')),
     
 ]
 

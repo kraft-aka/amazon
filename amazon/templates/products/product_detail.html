@@ -11,10 +11,19 @@
     <div class="jumbotron">
         <h1 class="display-4">{{ product.title }}</h1>
         <p class="lead">{{ product.description }}</p>
+        <a href="{% url 'product-update' product.id %}"class='btn btn-primary mt-2'>Update</a>
+        <a href="{% url 'product-delete' product.id %}"class='btn btn-danger mt-2'>Delete</a>
         <hr class="my-4">
         <ul>
             {% for category in product.categories.all %}
                 <li class="lead text-primary">{{ category.title }}</li>
+            {% endfor %}
+        </ul>
+
+        <h3>Items</h3>
+        <ul>
+            {% for item in product.items.all %}
+                <li><a href="{% url 'item-detail' item.id %}">{{ item }}</a></li>
             {% endfor %}
         </ul>
         

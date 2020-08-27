@@ -34,5 +34,6 @@ class CategoryDelete(generic.DeleteView):
     template_name = 'tags/category_delete.html'
     success_url = reverse_lazy('category-list')
     
+
         
 

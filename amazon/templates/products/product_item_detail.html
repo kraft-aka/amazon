@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Item Detail{% endblock %}
+
+{% block header %}
+    <h1>Item Details</h1>
+{% endblock %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">{{ item.product }}</h1>
+        <a href="{% url 'item-delete' item.id %}"class='btn btn-danger mt-2'>Delete</a>
+        <hr class="my-4">
+        <ul>
+            <li>Color: {{ item.color }}</li>
+            <li>Size: {{ item.size }}</li>
+            <li>Quantity: {{ item.quantity }}</li>
+            <li>Price: {{ item.price }}</li>
+        </ul>
+        <div class="row row-cols-3">
+            {% for image in item.images.all %}
+                <div class="col" >
+                    <img src="{{ image.image.url }}" alt="item-image" style="width: 100px; height: 100px">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
