@@ -36,6 +36,14 @@ class UserProfileView(generic.DetailView):
         return get_object_or_404(Profile, user=user)
 
     
+class UserUpdateView(generic.UpdateView):
+    model = Profile
+    template_name = "users/update.html"
+    context_object_name ="update"
+    form_class = UserCreationForm
 
+    def get_object(self):
+        user = get_object_or_404(User, username=self.kwargs['username'])
+        return get_object_or_404(Profile, user=user)
 
     

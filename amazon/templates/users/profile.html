@@ -23,5 +23,6 @@
                 <li><a href="{% url 'product-detail' item.id %}">{{ item }}</a></li>
             {% endfor %}
         </ul>
+        <a class="submit btn btn-primary ml-4" href="{% url 'update' user.username %}">Update</a>
     </div>
 {% endblock %}
